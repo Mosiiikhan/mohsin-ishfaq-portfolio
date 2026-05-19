@@ -1,15 +1,19 @@
 @import url('https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;600;800&display=swap');
 
 :root {
-  --bg-main: #07070a;
-  --bg-card: rgba(255, 255, 255, 0.03);
-  --bg-card-hover: rgba(255, 255, 255, 0.08);
+  /* 🛠️ FIXED: Bg ko thoda light deep charcoal kiya taake dark cards clear standout hon */
+  --bg-main: #0b0c10; 
+  
+  /* Premium Glass Tint Configs */
+  --bg-card: rgba(255, 255, 255, 0.02);
+  --bg-card-hover: rgba(255, 255, 255, 0.04);
+  
   --text-main: #ffffff;
   --text-muted: #94a3b8;
-  --accent-primary: #8b5cf6;
-  --accent-secondary: #06b6d4;
-  --border-color: rgba(255, 255, 255, 0.1);
-  --glass-bg: rgba(7, 7, 10, 0.7);
+  --accent-primary: #8b5cf6;   /* Electric Purple */
+  --accent-secondary: #3b82f6; /* Modern Electric Blue (Updated for premium contrast) */
+  --border-color: rgba(255, 255, 255, 0.08);
+  --glass-bg: rgba(11, 12, 16, 0.7);
 }
 
 * {
@@ -25,19 +29,27 @@ body {
   line-height: 1.6;
   overflow-x: hidden;
   scroll-behavior: smooth;
+  
+  /* Subtle digital grid pattern over the entire background canvas */
+  background-image: radial-gradient(rgba(139, 92, 246, 0.015) 1px, transparent 1px);
+  background-size: 30px 30px;
 }
 
 h1, h2, h3, h4 {
   font-weight: 800;
   line-height: 1.2;
+  letter-spacing: -0.5px;
 }
 
 a {
   color: inherit;
   text-decoration: none;
+  transition: color 0.3s ease;
 }
 
-/* Utility Classes */
+/* ==========================================
+   UTILITY & STRUCTURAL GLOBAL CLASSES
+========================================== */
 .container {
   max-width: 1200px;
   margin: 0 auto;
@@ -45,70 +57,107 @@ a {
 }
 
 .gradient-text {
-  background: linear-gradient(135deg, var(--accent-primary), var(--accent-secondary));
+  background: linear-gradient(135deg, #ffffff 20%, var(--accent-primary) 70%, var(--accent-secondary) 100%);
   -webkit-background-clip: text;
   -webkit-text-fill-color: transparent;
   background-clip: text;
+  display: inline-block;
 }
 
 .section-title {
-  font-size: 2.5rem;
-  margin-bottom: 3rem;
+  font-size: 2.6rem;
+  font-weight: 800;
+  margin-bottom: 4rem;
   text-align: center;
+  letter-spacing: -0.8px;
+  position: relative;
+  background: linear-gradient(135deg, #ffffff 40%, var(--text-muted) 100%);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
 }
 
+/* Shared Global Glass Card Config (If any backup items use it) */
 .glass-card {
   background: var(--bg-card);
   border: 1px solid var(--border-color);
-  border-radius: 1rem;
+  border-radius: 0.8rem; /* Made sharper to match your micro-tech style */
   padding: 2rem;
-  backdrop-filter: blur(10px);
-  transition: all 0.3s ease;
+  backdrop-filter: blur(16px);
+  -webkit-backdrop-filter: blur(16px);
+  box-shadow: 0 15px 35px rgba(0, 0, 0, 0.4);
+  transition: all 0.45s cubic-bezier(0.165, 0.84, 0.44, 1);
 }
 
 .glass-card:hover {
   background: var(--bg-card-hover);
   transform: translateY(-5px);
-  box-shadow: 0 10px 30px -10px rgba(139, 92, 246, 0.3);
+  border-color: rgba(139, 92, 246, 0.3);
+  box-shadow: 0 25px 50px rgba(0, 0, 0, 0.6),
+              0 0 20px rgba(139, 92, 246, 0.1);
 }
 
-/* Animations */
+/* ==========================================
+   PERFORMANCE-TUNED CORE ANIMATIONS
+========================================== */
 @keyframes fadeIn {
-  from { opacity: 0; transform: translateY(20px); }
-  to { opacity: 1; transform: translateY(0); }
+  from { 
+    opacity: 0; 
+    transform: translateY(25px); 
+  }
+  to { 
+    opacity: 1; 
+    transform: translateY(0); 
+  }
 }
 
 @keyframes pulse-glow {
-  0% { box-shadow: 0 0 20px rgba(139, 92, 246, 0.5); }
-  50% { box-shadow: 0 0 40px rgba(6, 182, 212, 0.6); }
-  100% { box-shadow: 0 0 20px rgba(139, 92, 246, 0.5); }
+  0% { box-shadow: 0 0 20px rgba(139, 92, 246, 0.3); }
+  50% { box-shadow: 0 0 35px rgba(59, 130, 246, 0.4); }
+  100% { box-shadow: 0 0 20px rgba(139, 92, 246, 0.3); }
 }
 
 @keyframes float {
   0% { transform: translateY(0px); }
-  50% { transform: translateY(-15px); }
+  50% { transform: translateY(-12px); }
   100% { transform: translateY(0px); }
 }
 
 .animate-fade-in {
-  animation: fadeIn 1s cubic-bezier(0.4, 0, 0.2, 1) forwards;
+  animation: fadeIn 0.8.s cubic-bezier(0.25, 1, 0.5, 1) forwards;
 }
 
 .animate-float {
   animation: float 6s ease-in-out infinite;
 }
 
-/* Custom Scrollbar */
+/* ==========================================
+   PREMIUM CUSTOM SMOOTH SCROLLBAR
+========================================== */
 ::-webkit-scrollbar {
-  width: 10px;
+  width: 8px; /* Slightly sleeker width */
 }
 ::-webkit-scrollbar-track {
   background: var(--bg-main);
 }
 ::-webkit-scrollbar-thumb {
-  background: var(--bg-card-hover);
-  border-radius: 5px;
+  background: rgba(58, 12, 12, 0.08);
+  border-radius: 20px;
+  border: 2px solid var(--bg-main); /* Adds breathing gap padding around thumb */
+  transition: background 0.3s ease;
 }
 ::-webkit-scrollbar-thumb:hover {
   background: var(--accent-primary);
+}
+
+/* ==========================================
+   GLOBAL RESPONSIVE FIXES
+========================================== */
+@media (max-width: 768px) {
+  .container {
+    padding: 0 1.25rem;
+  }
+  .section-title {
+    font-size: 2rem;
+    margin-bottom: 2.5rem;
+  }
 }

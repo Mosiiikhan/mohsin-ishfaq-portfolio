@@ -13,20 +13,21 @@ const Experience = () => {
                         <Briefcase size={20} />
                     </div>
                     <div className="timeline-content">
-                        <h3 className="job-title">Mobile Application Developer</h3>
-                        <h4 className="company">ZeeSign Tech — Rawalpindi, Pakistan</h4>
-                        <span className="duration text-muted">Aug 2023 – Present</span>
+                        <h3 className="job-title">FullStack Web Developer</h3>
+                        <h4 className="company">MoroSoft Technologies — Rawalpindi, Pakistan</h4>
+                        <span className="duration text-muted">Jan 2026 – Present</span>
 
                         <ul className="job-description">
-                            <li>Developed and maintained 5+ production-level Android applications using Kotlin and Java.</li>
-                            <li>Designed responsive and intuitive UI using XML layouts and Material Design, improving user engagement.</li>
-                            <li>Integrated RESTful APIs and implemented local data persistence using SQLite & Room.</li>
-                            <li>Implemented Google AdMob ads (Banner, Interstitial, Native) across multiple apps.</li>
-                            <li>Optimized ad placement to balance user experience and revenue generation while ensuring AdMob policy compliance.</li>
-                            <li>Optimized memory usage, background tasks, and app startup performance.</li>
-                            <li>Collaborated with designers, backend engineers, and QA teams in an Agile/Scrum environment.</li>
-                            <li>Followed clean coding standards, performed code reviews, and ensured scalable architecture.</li>
-                        </ul>
+    <li>Developed and maintained responsive web applications using React.js and modern JavaScript</li>
+    <li>Built robust and scalable server-side logic and RESTful APIs using Node.js and Express.</li>
+    <li>Designed intuitive, mobile-first user interfaces using Tailwind CSS, Bootstrap, and Material-UI (MUI).</li>
+    <li>Implemented state management using Redux Toolkit / Context API for seamless data flow across components.</li>
+    <li>Managed data persistence by designing and optimizing database schemas in MongoDB / MySQL / PostgreSQL.</li>
+    <li>Integrated third-party APIs, authentication systems (JWT/OAuth), and payment gateways.</li>
+    <li>Optimized frontend performance, including lazy loading, API caching, and reducing bundle sizes for faster page loads.</li>
+    <li>Utilized Git/GitHub for version control and collaborated with team members using Agile/Scrum methodologies.</li>
+    <li>Followed clean code practices, wrote reusable components, and ensured a scalable project architecture.</li>
+</ul>
                     </div>
                 </div>
             </div>

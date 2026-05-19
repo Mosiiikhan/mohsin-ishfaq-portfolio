@@ -1,0 +1,128 @@
+/* Floating Button Base */
+.floating-whatsapp-btn {
+    position: fixed;
+    bottom: 35px;
+    right: 35px;
+    width: 65px;
+    height: 65px;
+    
+    /* Premium Realistic Gradient & Glass Border */
+    background: linear-gradient(135deg, #25D366 0%, #1BD75E 50%, #128C7E 100%);
+    border: 2px solid rgba(255, 255, 255, 0.25);
+    border-radius: 50%;
+    
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: #ffffff;
+    text-decoration: none;
+    cursor: pointer;
+    z-index: 9999;
+    
+    /* Box Shadow with customized green glow */
+    box-shadow: 0 10px 30px rgba(37, 211, 102, 0.4), 
+                inset 0 4px 10px rgba(255, 255, 255, 0.3);
+    
+    /* High-end smooth transition physics */
+    transition: all 0.5s cubic-bezier(0.19, 1, 0.22, 1);
+}
+
+/* Custom Double Ring Ripple Glow Animation */
+.floating-whatsapp-btn::before,
+.floating-whatsapp-btn::after {
+    content: '';
+    position: absolute;
+    top: -4px;
+    left: -4px;
+    right: -4px;
+    bottom: -4px;
+    border: 2px solid #25D366;
+    border-radius: 50%;
+    opacity: 0;
+    animation: premium-glow 2.5s cubic-bezier(0.25, 0, 0, 1) infinite;
+}
+
+.floating-whatsapp-btn::after {
+    animation-delay: 1.25s;
+}
+
+/* WhatsApp Icon Fine-tuning */
+.whatsapp-svg-icon {
+    filter: drop-shadow(0 2px 4px rgba(0, 0, 0, 0.15));
+    transition: all 0.6s cubic-bezier(0.19, 1, 0.22, 1);
+}
+
+/* High-End Hover State Mechanics */
+.floating-whatsapp-btn:hover {
+    transform: translateY(-8px) scale(1.08);
+    background: linear-gradient(135deg, #2ae871 0%, #25D366 60%, #149f8f 100%);
+    box-shadow: 0 15px 35px rgba(37, 211, 102, 0.6), 
+                inset 0 2px 6px rgba(255, 255, 255, 0.4);
+    border-color: rgba(255, 255, 255, 0.6);
+}
+
+/* Dramatic Icon Effect on Hover */
+.floating-whatsapp-btn:hover .whatsapp-svg-icon {
+    transform: scale(1.12) rotate(12deg);
+}
+
+/* Clean, Minimalist Cyberpunk Style Tooltip */
+.floating-whatsapp-btn .tooltip-text {
+    visibility: hidden;
+    background: rgba(17, 17, 17, 0.85);
+    backdrop-filter: blur(12px) saturate(180%);
+    -webkit-backdrop-filter: blur(12px) saturate(180%);
+    color: #ffffff;
+    font-size: 0.8rem;
+    font-weight: 600;
+    letter-spacing: 0.5px;
+    padding: 8px 16px;
+    border-radius: 30px;
+    border: 1px solid rgba(255, 255, 255, 0.12);
+    position: absolute;
+    right: 85px;
+    opacity: 0;
+    white-space: nowrap;
+    box-shadow: 0 8px 32px rgba(0, 0, 0, 0.25);
+    transition: all 0.4s cubic-bezier(0.19, 1, 0.22, 1);
+    transform: translateX(15px);
+}
+
+/* Tooltip activation on hover */
+.floating-whatsapp-btn:hover .tooltip-text {
+    visibility: visible;
+    opacity: 1;
+    transform: translateX(0);
+}
+
+/* Elegant Double Ripple Animation Logic */
+@keyframes premium-glow {
+    0% {
+        transform: scale(0.95);
+        opacity: 0.8;
+    }
+    50% {
+        opacity: 0.4;
+    }
+    100% {
+        transform: scale(1.35);
+        opacity: 0;
+    }
+}
+
+/* Responsive adjustments for clean mobile UI */
+@media (max-width: 768px) {
+    .floating-whatsapp-btn {
+        bottom: 25px;
+        right: 25px;
+        width: 55px;
+        height: 55px;
+    }
+    .floating-whatsapp-btn .tooltip-text {
+        display: none; /* Mobile screen clean rakhne k liye */
+    }
+    .floating-whatsapp-btn::before,
+    .floating-whatsapp-btn::after {
+        display: none; /* Mobile par battery/performance optimization ke liye rings hide */
+    }
+}

@@ -4,55 +4,44 @@ import './Projects.css';
 
 const Projects = () => {
     const projects = [
-        {
-            id: 1,
-            title: 'Period Calendar & Cycle Tracker App',
-            description: 'A women’s health period tracking and cycle prediction app with a clean, intuitive UI. Features offline-first data storage and calendar-based visualization for cycle history.',
-            tags: ['Kotlin', 'Android SDK', 'Room DB', 'MVVM'],
-            link: '#',
-            github: '#'
-        },
-        {
-            id: 2,
-            title: 'Custom Android Launcher',
-            description: 'A feature-rich Android launcher with customizable home screens, gestures, and themes. Includes advanced widget management and a theme engine.',
-            tags: ['Kotlin', 'Android SDK', 'SQLite', 'Material Design'],
-            link: '#',
-            github: '#'
-        },
-        {
-            id: 3,
-            title: 'Islamic Dua & Quran App',
-            description: 'A complete Islamic app featuring Quran, duas, dhikr, and prayer timings with multiple calculation methods and Qibla direction.',
-            tags: ['Java', 'Android SDK', 'SQLite', 'Location APIs'],
-            link: '#',
-            github: '#'
-        },
-        {
-            id: 4,
-            title: 'GPS Map Camera',
-            description: 'An advanced camera app embedding real-time GPS coordinates and addresses on photos using Google Maps API and reverse geocoding.',
-            tags: ['Kotlin', 'Camera2 API', 'Location Services'],
-            link: '#',
-            github: '#'
-        },
-        {
-            id: 5,
-            title: 'Medical Dictionary (Offline)',
-            description: 'An offline medical dictionary with 1000+ terms, fast full-text search, voice search, and text-to-speech support.',
-            tags: ['Kotlin', 'Room DB', 'FTS'],
-            link: '#',
-            github: '#'
-        },
-        {
-            id: 6,
-            title: 'Learn Ethical Hacking App',
-            description: 'A cybersecurity learning application with modular learning paths, progress tracking, achievements, and secure data storage.',
-            tags: ['Kotlin', 'Android SDK', 'SQLite'],
-            link: '#',
-            github: '#'
-        }
-    ];
+    {
+        id: 1,
+        title: 'Al-Quran Islamic Institute Website',
+        description: 'A complete, responsive web platform built for an Islamic institute. Features dynamic course enrollment, event management, integrated prayer timings, and a clean user dashboard for students and admins.',
+        tags: ['React.js', 'Node.js', 'Express', 'Tailwind CSS', 'MongoDB'],
+        link: '#',
+        github: '#'
+    },
+    {
+        id: 2,
+        title: 'BIIT Academic Calendar & Scheduler',
+        description: 'An academic management tool featuring automated event scheduling, exam/holiday tracking, and role-based access control for students and faculty with strict version and flow management.',
+        tags: ['React.js', 'Node.js', 'Express', 'SQL / Database Design'],
+        link: '#',
+        github: '#'
+    },
+    {
+        id: 3,
+        title: 'Pharmacy Management System',
+        description: 'A robust web application designed to track medicine stock, expiry dates, and billing. Features real-time inventory updates, search/filter algorithms, and low-stock alerts.',
+        tags: ['React.js', 'Node.js', 'MongoDB', 'Context API / Redux'],
+        link: '#',
+        github: '#'
+    },
+    {
+        id: 4,
+        title: 'Sports Inventory Management System',
+        description: 'A web-based system for tracking and managing sports equipment issuance, returns, and stock status. Includes comprehensive data logging and analytical reporting for inventory audits.',
+        tags: ['React.js', 'Node.js', 'Express', 'Bootstrap / Material-UI'],
+        link: '#',
+        github: '#'
+    }
+];
+
+
+
+
+
 
     return (
         <section className="projects-section container" id="projects">

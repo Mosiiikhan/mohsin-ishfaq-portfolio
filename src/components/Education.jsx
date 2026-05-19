@@ -19,6 +19,8 @@ const Education = () => {
                         <div style={{ marginTop: '1.5rem' }}>
                             <h5 style={{ color: 'var(--accent-primary)', marginBottom: '0.5rem', fontSize: '1rem' }}>Relevant Coursework:</h5>
                             <div className="skill-tags">
+                                <span className="skill-tag">Web Technology</span>
+                                <span className="skill-tag">Web Engineering</span>
                                 <span className="skill-tag">Data Structures & Algorithms</span>
                                 <span className="skill-tag">Object-Oriented Programming</span>
                                 <span className="skill-tag">Database Systems</span>

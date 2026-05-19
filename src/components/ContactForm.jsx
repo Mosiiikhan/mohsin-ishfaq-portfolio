@@ -1,5 +1,6 @@
 import React, { useState } from 'react';
 import { Send, MessageCircle } from 'lucide-react';
+import emailjs from '@emailjs/browser'; // 1. EmailJS import kiya
 import './ContactForm.css';
 
 const ContactForm = () => {
@@ -14,11 +15,33 @@ const ContactForm = () => {
     const handleSubmit = (e) => {
         e.preventDefault();
         setStatus('sending');
-        setTimeout(() => {
-            setStatus('success');
-            setFormData({ name: '', email: '', message: '' });
-            setTimeout(() => setStatus(''), 3000);
-        }, 1500);
+
+        // 2. EmailJS ke zariye real email send karna
+        // ⚠️ IN TEEN STRINGS KO APNE EMAILJS DASHBOARD KI KEYS SE REPLACE KAREIN
+        const serviceID = 'service_n7uhxwl';
+        const templateID = 'template_c3j7ft3';
+        const publicKey = 'dNELRZn0bNwNSGFhz';
+
+        // Template variables jo EmailJS template mein use honge
+        const templateParams = {
+            from_name: formData.name,
+            from_email: formData.email,
+            message: formData.message,
+            to_name: 'Mohsin Ishfaq', // Aapka naam
+        };
+
+        emailjs.send(serviceID, templateID, templateParams, publicKey)
+            .then((response) => {
+                console.log('SUCCESS!', response.status, response.text);
+                setStatus('success');
+                setFormData({ name: '', email: '', message: '' }); // Form fields clear karein
+                setTimeout(() => setStatus(''), 3000);
+            })
+            .catch((err) => {
+                console.error('FAILED...', err);
+                setStatus('error');
+                setTimeout(() => setStatus(''), 3000);
+            });
     };
 
     const currentYear = new Date().getFullYear();
@@ -36,7 +59,7 @@ const ContactForm = () => {
 
                     <div className="direct-contact">
                         <a
-                            href="https://wa.me/923169493425"
+                            href="https://wa.me/923435520230"
                             target="_blank"
                             rel="noopener noreferrer"
                             className="whatsapp-btn"
@@ -47,8 +70,8 @@ const ContactForm = () => {
                     </div>
 
                     <div style={{ marginTop: '2rem', display: 'flex', flexDirection: 'column', gap: '0.8rem', color: 'var(--text-muted)' }}>
-                        <p><strong>Email:</strong> ozairabbasi633@gmail.com</p>
-                        <p><strong>Phone:</strong> +92-316-949-3425</p>
+                        <p><strong>Email:</strong> mohsinishfaq500@gmail.com</p>
+                        <p><strong>Phone:</strong> +92-343-552-0230</p>
                         <p><strong>Location:</strong> Rawalpindi, Punjab, Pakistan</p>
                     </div>
                 </div>
@@ -90,15 +113,17 @@ const ContactForm = () => {
                             onChange={handleChange}
                             placeholder="Tell me about your project..."
                             required
-                        ></textarea>
+                        />
                     </div>
 
                     <button
                         type="submit"
-                        className={`submit-btn ${status === 'sending' ? 'sending' : ''} ${status === 'success' ? 'success' : ''}`}
+                        className={`submit-btn ${status === 'sending' ? 'sending' : ''} ${status === 'success' ? 'success' : ''} ${status === 'error' ? 'error' : ''}`}
                         disabled={status === 'sending' || status === 'success'}
                     >
-                        {status === 'sending' ? 'Sending...' : status === 'success' ? 'Message Sent!' : (
+                        {status === 'sending' ? 'Sending...' : 
+                         status === 'success' ? 'Message Sent!' : 
+                         status === 'error' ? 'Failed! Try Again' : (
                             <>
                                 <Send size={18} /> Send Message
                             </>
@@ -108,8 +133,8 @@ const ContactForm = () => {
             </div>
 
             <footer className="footer">
-                <p className="text-muted">© {currentYear} Ozair Mehmood. All rights reserved.</p>
-                <p className="text-muted small">Android Application Developer</p>
+                <p className="text-muted">© {currentYear} Mohsin Ishfaq. All rights reserved.</p>
+                <p className="text-muted small">Full-Stack Web Developer</p>
             </footer>
         </section>
     );
