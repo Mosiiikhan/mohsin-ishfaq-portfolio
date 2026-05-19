@@ -18,9 +18,10 @@ const ContactForm = () => {
 
         // 2. EmailJS ke zariye real email send karna
         // ⚠️ IN TEEN STRINGS KO APNE EMAILJS DASHBOARD KI KEYS SE REPLACE KAREIN
-        const serviceID = 'service_n7uhxwl';
-        const templateID = 'template_c3j7ft3';
-        const publicKey = 'dNELRZn0bNwNSGFhz';
+        // Environment variables se secure keys load karna
+const serviceID = import.meta.env.VITE_EMAILJS_SERVICE_ID;
+const templateID = import.meta.env.VITE_EMAILJS_TEMPLATE_ID;
+const publicKey = import.meta.env.VITE_EMAILJS_PUBLIC_KEY;
 
         // Template variables jo EmailJS template mein use honge
         const templateParams = {
