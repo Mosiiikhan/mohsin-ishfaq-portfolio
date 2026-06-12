@@ -1,17 +1,13 @@
 @import url('https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;600;800&display=swap');
 
 :root {
-  /* 🛠️ FIXED: Bg ko thoda light deep charcoal kiya taake dark cards clear standout hon */
   --bg-main: #0b0c10; 
-  
-  /* Premium Glass Tint Configs */
   --bg-card: rgba(255, 255, 255, 0.02);
   --bg-card-hover: rgba(255, 255, 255, 0.04);
-  
   --text-main: #ffffff;
   --text-muted: #94a3b8;
-  --accent-primary: #8b5cf6;   /* Electric Purple */
-  --accent-secondary: #3b82f6; /* Modern Electric Blue (Updated for premium contrast) */
+  --accent-primary: #8b5cf6;
+  --accent-secondary: #3b82f6;
   --border-color: rgba(255, 255, 255, 0.08);
   --glass-bg: rgba(11, 12, 16, 0.7);
 }
@@ -29,10 +25,34 @@ body {
   line-height: 1.6;
   overflow-x: hidden;
   scroll-behavior: smooth;
-  
-  /* Subtle digital grid pattern over the entire background canvas */
+  cursor: none;
   background-image: radial-gradient(rgba(139, 92, 246, 0.015) 1px, transparent 1px);
   background-size: 30px 30px;
+}
+
+/* ==========================================
+   CUSTOM CURSOR
+========================================== */
+#cursor-dot {
+  width: 10px;
+  height: 10px;
+  background: var(--accent-primary);
+  border-radius: 50%;
+  position: fixed;
+  pointer-events: none;
+  transform: translate(-50%, -50%);
+  z-index: 9999;
+}
+
+#cursor-circle {
+  width: 36px;
+  height: 36px;
+  border: 1.5px solid rgba(139, 92, 246, 0.5);
+  border-radius: 50%;
+  position: fixed;
+  pointer-events: none;
+  transform: translate(-50%, -50%);
+  z-index: 9998;
 }
 
 h1, h2, h3, h4 {
@@ -76,11 +96,10 @@ a {
   -webkit-text-fill-color: transparent;
 }
 
-/* Shared Global Glass Card Config (If any backup items use it) */
 .glass-card {
   background: var(--bg-card);
   border: 1px solid var(--border-color);
-  border-radius: 0.8rem; /* Made sharper to match your micro-tech style */
+  border-radius: 0.8rem;
   padding: 2rem;
   backdrop-filter: blur(16px);
   -webkit-backdrop-filter: blur(16px);
@@ -123,7 +142,7 @@ a {
 }
 
 .animate-fade-in {
-  animation: fadeIn 0.8.s cubic-bezier(0.25, 1, 0.5, 1) forwards;
+  animation: fadeIn 0.8s cubic-bezier(0.25, 1, 0.5, 1) forwards;
 }
 
 .animate-float {
@@ -134,15 +153,15 @@ a {
    PREMIUM CUSTOM SMOOTH SCROLLBAR
 ========================================== */
 ::-webkit-scrollbar {
-  width: 8px; /* Slightly sleeker width */
+  width: 8px;
 }
 ::-webkit-scrollbar-track {
   background: var(--bg-main);
 }
 ::-webkit-scrollbar-thumb {
-  background: rgba(58, 12, 12, 0.08);
+  background: rgba(139, 92, 246, 0.4);
   border-radius: 20px;
-  border: 2px solid var(--bg-main); /* Adds breathing gap padding around thumb */
+  border: 2px solid var(--bg-main);
   transition: background 0.3s ease;
 }
 ::-webkit-scrollbar-thumb:hover {
@@ -161,3 +180,22 @@ a {
     margin-bottom: 2.5rem;
   }
 }
+
+/* ==========================================
+   SCROLL FADE-IN ANIMATIONS
+========================================== */
+.fade-in {
+  opacity: 0;
+  transform: translateY(40px);
+  transition: opacity 0.7s ease, transform 0.7s ease;
+}
+
+.fade-in.visible {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+.fade-in:nth-child(2) { transition-delay: 0.1s; }
+.fade-in:nth-child(3) { transition-delay: 0.2s; }
+.fade-in:nth-child(4) { transition-delay: 0.15s; }
+.fade-in:nth-child(5) { transition-delay: 0.1s; }

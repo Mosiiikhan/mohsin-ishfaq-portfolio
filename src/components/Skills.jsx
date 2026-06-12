@@ -5,7 +5,7 @@ const Skills = () => {
     const skillCategories = [
     {
         title: "Programming Languages",
-        skills: ["JavaScript (ES6+)", "HTML5 / CSS3", "Python", "C++", "SQL"]
+        skills: ["JavaScript (ES6+)", "HTML5 / CSS3", "C++", "SQL"]
     },
     {
         title: "Frontend Development",

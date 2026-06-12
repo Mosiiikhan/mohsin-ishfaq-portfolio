@@ -1,207 +1,186 @@
-/* ==========================================
-   PROJECTS SECTION MAIN WRAPPER
-========================================== */
 .projects-section {
-    padding-top: 6rem; /* Reduced to balance the layout */
+    padding-top: 6rem;
     padding-bottom: 5rem;
-    min-height: 100vh;
     position: relative;
-    overflow: hidden;
 }
 
-/* Sci-fi Subtle Tech Backdrop Canvas */
-.projects-section::after {
-    content: '';
-    position: absolute;
-    bottom: -10%;
-    left: -10%;
-    width: 400px;
-    height: 400px;
-    background: radial-gradient(circle, rgba(59, 130, 246, 0.05) 0%, transparent 75%);
-    filter: blur(50px);
-    pointer-events: none;
-    z-index: 0;
-}
-
-/* Compact Responsive Grid System */
 .projects-grid {
     display: grid;
-    /* Adjusted minmax to 300px for tighter, more elegant columns */
     grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
-    gap: 1.8rem; /* Reduced gap to bring cards together nicely */
+    gap: 1.8rem;
     margin-top: 3rem;
-    position: relative;
-    z-index: 2;
 }
 
-/* ==========================================
-   SLEEK & COMPACT CYBER GLASS CARD
-========================================== */
+/* ── Card ── */
 .project-card {
     display: flex;
     flex-direction: column;
-    justify-content: space-between;
-    height: 100%;
-    padding: 1.8rem 1.6rem; /* 🛠️ FIXED: Reduced padding for a compact, professional look */
-    border-radius: 0.8rem; /* Slightly sharper radius for micro-tech feel */
-    
-    /* True Hybrid Translucent Glass layer */
-    background: linear-gradient(145deg, rgba(255, 255, 255, 0.015) 0%, rgba(5, 5, 5, 0.6) 100%);
-    backdrop-filter: blur(20px);
-    -webkit-backdrop-filter: blur(20px);
-    
-    /* Ultra-fine sleek border line blueprint */
-    border: 1px solid rgba(139, 92, 246, 0.12);
-    
-    /* Heavy stacked dark space box shadows */
-    box-shadow: 0 12px 30px rgba(0, 0, 0, 0.5),
-                inset 0 1px 1px rgba(255, 255, 255, 0.06);
-                
-    position: relative;
-    overflow: hidden; 
-    transition: all 0.4s cubic-bezier(0.165, 0.84, 0.44, 1);
+    border-radius: 1rem;
+    background: rgba(255, 255, 255, 0.02);
+    border: 1px solid rgba(255, 255, 255, 0.08);
+    box-shadow: 0 12px 30px rgba(0, 0, 0, 0.4);
+    overflow: hidden;
+    transition: transform 0.35s cubic-bezier(0.165, 0.84, 0.44, 1),
+                box-shadow 0.35s ease,
+                border-color 0.35s ease;
 }
 
-/* The Laser Sweep Effect across the card top boundary */
-.project-card::before {
-    content: '';
-    position: absolute;
-    top: 0; 
-    left: -100%;
-    width: 100%; 
-    height: 2px;
-    background: linear-gradient(90deg, transparent, #3b82f6, var(--accent-primary, #6d28d9), transparent);
-    transition: all 0.6s cubic-bezier(0.25, 1, 0.3, 1);
-}
-
-/* Balanced Compact Hover Response (No crazy oversized zooming) */
 .project-card:hover {
-    transform: translateY(-5px); /* 🛠️ FIXED: Smooth light lift, no scale deformation */
-    background: linear-gradient(145deg, rgba(139, 92, 246, 0.03) 0%, rgba(10, 10, 10, 0.7) 100%);
-    
-    border-color: rgba(139, 92, 246, 0.35);
-    box-shadow: 0 20px 40px rgba(0, 0, 0, 0.6),
-                0 0 15px rgba(139, 92, 246, 0.1),
-                inset 0 1px 1px rgba(255, 255, 255, 0.15);
+    transform: translateY(-6px);
+    border-color: rgba(139, 92, 246, 0.3);
+    box-shadow: 0 24px 48px rgba(0, 0, 0, 0.6),
+                0 0 20px rgba(139, 92, 246, 0.08);
 }
 
-/* Trigger Laser Strike Activation on Hover */
-.project-card:hover::before {
-    left: 100%;
+/* ── Banner ── */
+.project-banner {
+    position: relative;
+    height: 130px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    overflow: hidden;
+    flex-shrink: 0;
 }
 
-.project-content {
+/* ── 3D Icon Wrapper ── */
+.project-icon-wrapper {
+    position: relative;
+    z-index: 2;
+    width: 72px;
+    height: 72px;
+    border-radius: 20px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    transform: perspective(400px) rotateX(10deg) rotateY(-8deg);
+    transition: transform 0.4s ease, box-shadow 0.4s ease;
+}
+
+.project-card:hover .project-icon-wrapper {
+    transform: perspective(400px) rotateX(0deg) rotateY(0deg) scale(1.1);
+}
+
+.project-icon {
+    font-size: 2.2rem;
+    filter: drop-shadow(0 4px 8px rgba(0, 0, 0, 0.4));
+    line-height: 1;
+}
+
+.banner-glow {
+    position: absolute;
+    width: 120px;
+    height: 120px;
+    border-radius: 50%;
+    opacity: 0.25;
+    filter: blur(40px);
+    z-index: 1;
+}
+
+/* ── Body ── */
+.project-body {
     flex: 1;
+    padding: 1.4rem 1.6rem;
 }
 
-/* ==========================================
-   TYPOGRAPHY & CONTENT TUNING (CLEAN & SHARP)
-========================================== */
 .project-title {
-    font-size: 1.35rem; /* 🛠️ FIXED: Downscaled from 1.65rem for a tighter look */
+    font-size: 1.15rem;
     font-weight: 800;
-    letter-spacing: -0.3px;
     color: #ffffff;
-    margin-bottom: 0.8rem;
-    transition: all 0.3s ease;
+    margin-bottom: 0.7rem;
+    letter-spacing: -0.3px;
+    transition: color 0.3s ease;
 }
 
-/* Electric illumination on title string */
 .project-card:hover .project-title {
-    color: #3b82f6; 
-    text-shadow: 0 0 12px rgba(59, 130, 246, 0.3);
+    color: var(--accent, #8b5cf6);
 }
 
 .project-desc {
-    font-size: 0.95rem; /* 🛠️ FIXED: Micro-adjusted for standard high-density text readability */
-    color: #9ca3af; 
-    margin-bottom: 1.5rem;
-    line-height: 1.6;
-    font-weight: 400;
+    font-size: 0.9rem;
+    color: #9ca3af;
+    line-height: 1.65;
+    margin-bottom: 1.2rem;
     transition: color 0.3s ease;
 }
 
 .project-card:hover .project-desc {
-    color: #e5e7eb;
+    color: #d1d5db;
 }
 
-/* ==========================================
-   TECH TOKENS TERMINAL TAGS
-========================================== */
+/* ── Tags ── */
 .project-tags {
     display: flex;
     flex-wrap: wrap;
-    gap: 0.5rem; /* Tighter gap */
-    margin-bottom: 1.5rem;
+    gap: 0.45rem;
 }
 
-/* Sharp Architectural Custom Token */
 .tag {
-    font-size: 0.72rem; /* Crisp micro font */
+    font-size: 0.7rem;
     font-weight: 700;
-    letter-spacing: 0.5px;
+    letter-spacing: 0.4px;
     text-transform: uppercase;
-    padding: 0.35rem 0.8rem; /* 🛠️ FIXED: Sleeker padding for clean chips */
-    
-    background: rgba(5, 5, 5, 0.6);
+    padding: 0.3rem 0.7rem;
+    background: rgba(255, 255, 255, 0.04);
     color: #a78bfa;
-    border: 1px solid rgba(139, 92, 246, 0.15);
-    border-radius: 4px; 
-    
-    box-shadow: inset 0 1px 2px rgba(0, 0, 0, 0.4);
-    transition: all 0.3s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+    border: 1px solid rgba(139, 92, 246, 0.2);
+    border-radius: 4px;
+    transition: all 0.25s ease;
 }
 
-/* Custom individual token flip when hovering specific components */
 .tag:hover {
-    background: rgba(139, 92, 246, 0.15) !important;
-    color: #ffffff !important;
-    border-color: var(--accent-primary, #6d28d9) !important;
-    transform: translateY(-2px);
-    box-shadow: 0 4px 10px rgba(139, 92, 246, 0.2);
+    background: rgba(139, 92, 246, 0.12);
+    color: #fff;
+    border-color: var(--accent, #8b5cf6);
+    transform: translateY(-1px);
 }
 
-.project-card:hover .tag {
-    border-color: rgba(59, 130, 246, 0.25);
-    color: #f3f4f6;
-}
-
-/* ==========================================
-   HIGH-TECH ACTION FOOTER LINK INTERACTION
-========================================== */
+/* ── Links Footer ── */
 .project-links {
     display: flex;
     align-items: center;
-    gap: 1.2rem;
-    margin-top: auto;
-    padding-top: 1.2rem;
+    gap: 0.8rem;
+    padding: 1rem 1.6rem 1.4rem;
     border-top: 1px solid rgba(255, 255, 255, 0.06);
 }
 
-.icon-link {
-    color: rgba(255, 255, 255, 0.4);
+.proj-btn {
     display: flex;
     align-items: center;
-    justify-content: center;
-    transition: all 0.3s ease;
+    gap: 0.4rem;
+    padding: 0.5rem 1.1rem;
+    border-radius: 2rem;
+    font-size: 0.82rem;
+    font-weight: 600;
+    font-family: 'Outfit', sans-serif;
+    text-decoration: none;
+    transition: all 0.25s ease;
+    background: rgba(255, 255, 255, 0.05);
+    border: 1px solid rgba(255, 255, 255, 0.1);
+    color: #d1d5db;
 }
 
-.icon-link:hover {
+.proj-btn:hover {
+    background: rgba(255, 255, 255, 0.1);
     color: #ffffff;
-    transform: translateY(-3px) scale(1.1);
-    filter: drop-shadow(0 0 8px rgba(59, 130, 246, 0.8));
+    transform: translateY(-2px);
 }
 
-/* ==========================================
-   PIXEL-PERFECT DEVICE ADAPTATION ENGINE
-========================================== */
+.proj-btn-primary {
+    color: #ffffff;
+    border: none;
+    font-weight: 700;
+}
+
+.proj-btn-primary:hover {
+    opacity: 0.88;
+    filter: brightness(1.1);
+}
+
+/* ── Responsive ── */
 @media (max-width: 1024px) {
     .projects-grid {
         grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
-        gap: 1.5rem;
-    }
-    .project-card {
-        padding: 1.6rem 1.4rem;
     }
 }
 
@@ -210,19 +189,10 @@
         padding-top: 5rem;
     }
     .projects-grid {
-        grid-template-columns: 1fr; /* Stacked columns for mobile viewport */
-        gap: 1.5rem;
+        grid-template-columns: 1fr;
+        gap: 1.2rem;
     }
-    .project-card {
-        padding: 1.5rem 1.3rem;
-    }
-    .project-title {
-        font-size: 1.25rem;
-    }
-    .project-card:hover {
-        transform: translateY(-4px); 
-    }
-    .project-card::before {
-        display: none;
+    .project-banner {
+        height: 110px;
     }
 }

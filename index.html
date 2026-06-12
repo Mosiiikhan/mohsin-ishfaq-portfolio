@@ -7,7 +7,31 @@
     <title>Mohsin Ishfaq | Portfolio</title>
   </head>
   <body>
+    <div id="cursor-dot"></div>
+    <div id="cursor-circle"></div>
     <div id="root"></div>
     <script type="module" src="/src/main.jsx"></script>
+
+    <script>
+      const dot = document.getElementById('cursor-dot');
+      const circle = document.getElementById('cursor-circle');
+      let cx = 0, cy = 0, tx = 0, ty = 0;
+
+      document.addEventListener('mousemove', e => {
+        tx = e.clientX; ty = e.clientY;
+        dot.style.left = tx + 'px';
+        dot.style.top  = ty + 'px';
+      });
+
+      function animate() {
+        cx += (tx - cx) * 0.12;
+        cy += (ty - cy) * 0.12;
+        circle.style.left = cx + 'px';
+        circle.style.top  = cy + 'px';
+        requestAnimationFrame(animate);
+      }
+      animate();
+    </script>
+
   </body>
 </html>
