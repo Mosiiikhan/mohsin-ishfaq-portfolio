@@ -49,7 +49,9 @@ const publicKey = import.meta.env.VITE_EMAILJS_PUBLIC_KEY;
 
     return (
         <section className="contact-section container" id="contact">
-            <h2 className="section-title gradient-text">Get In Touch</h2>
+            <h2 className="section-title gradient-text" style={{ textAlign: 'center' }}>
+  Get In Touch
+</h2>
 
             <div className="contact-container">
                 <div className="contact-info glass-card">

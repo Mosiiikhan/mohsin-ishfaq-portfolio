@@ -11,31 +11,43 @@ const navLinks = [
 ];
 
 function Navbar() {
-    const [scrolled, setScrolled]         = useState(false);
-    const [menuOpen, setMenuOpen]         = useState(false);
-    const [activeId, setActiveId]         = useState('profile');
+    const [scrolled, setScrolled] = useState(false);
+    const [menuOpen, setMenuOpen] = useState(false);
+    const [activeId, setActiveId] = useState('profile');
 
     useEffect(() => {
         function onScroll() {
             setScrolled(window.scrollY > 20);
 
-            for (let i = navLinks.length - 1; i >= 0; i--) {
+            // Sabse neeche wala section check karo jo viewport mein hai
+            let currentId = navLinks[0].id;
+
+            for (let i = 0; i < navLinks.length; i++) {
                 const el = document.getElementById(navLinks[i].id);
-                if (el && window.scrollY >= el.offsetTop - 120) {
-                    setActiveId(navLinks[i].id);
-                    break;
+                if (!el) continue;
+
+                const rect = el.getBoundingClientRect();
+                // Jab section ka top viewport ke 50% se upar ho
+                if (rect.top <= window.innerHeight * 0.5) {
+                    currentId = navLinks[i].id;
                 }
             }
+
+            setActiveId(currentId);
         }
 
-        window.addEventListener('scroll', onScroll);
+        window.addEventListener('scroll', onScroll, { passive: true });
+        onScroll(); // initial call
         return () => window.removeEventListener('scroll', onScroll);
     }, []);
 
     function goTo(id) {
         setMenuOpen(false);
         const el = document.getElementById(id);
-        if (el) el.scrollIntoView({ behavior: 'smooth' });
+        if (el) {
+            const offset = el.getBoundingClientRect().top + window.scrollY - 80;
+            window.scrollTo({ top: offset, behavior: 'smooth' });
+        }
     }
 
     return (

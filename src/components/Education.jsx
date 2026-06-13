@@ -1,37 +1,57 @@
 import React from 'react';
-import { GraduationCap } from 'lucide-react';
+import './Education.css';
 
 const Education = () => {
-    return (
-        <section className="education-section container" id="education" style={{ paddingTop: '6rem' }}>
-            <h2 className="section-title gradient-text">Education</h2>
+  return (
+    <section className="edu-section" id="education">
+      <h2 className="section-title gradient-text" style={{ textAlign: 'center' }}>
+        Education
+      </h2>
 
-            <div className="timeline">
-                <div className="timeline-item glass-card animate-fade-in">
-                    <div className="timeline-icon" style={{ borderColor: 'var(--accent-secondary)' }}>
-                        <GraduationCap size={20} />
-                    </div>
-                    <div className="timeline-content">
-                        <h3 className="job-title">Bachelor of Science in Computer Science</h3>
-                        <h4 className="company">Arid Agriculture University, Rawalpindi, Pakistan</h4>
-                        <span className="duration text-muted"> 2022 –  2026</span>
+      <div className="edu-wrapper">
+        <div className="edu-card">
 
-                        <div style={{ marginTop: '1.5rem' }}>
-                            <h5 style={{ color: 'var(--accent-primary)', marginBottom: '0.5rem', fontSize: '1rem' }}>Relevant Coursework:</h5>
-                            <div className="skill-tags">
-                                <span className="skill-tag">Web Technology</span>
-                                <span className="skill-tag">Web Engineering</span>
-                                <span className="skill-tag">Data Structures & Algorithms</span>
-                                <span className="skill-tag">Object-Oriented Programming</span>
-                                <span className="skill-tag">Database Systems</span>
-                                <span className="skill-tag">Software Engineering</span>
-                            </div>
-                        </div>
-                    </div>
-                </div>
+          {/* Top Accent Bar */}
+          <div className="edu-accent-bar"></div>
+
+          <div className="edu-body">
+
+            {/* Icon + Degree */}
+            <div className="edu-icon-wrap">
+              <div className="edu-icon-box">
+                <i className="ti ti-school" aria-hidden="true"></i>
+              </div>
+              <h3 className="edu-degree">
+                Bachelor of Science in Computer Science
+              </h3>
             </div>
-        </section>
-    );
+
+            {/* Year Badge */}
+            <span className="edu-year-badge">2022 – 2026</span>
+
+            {/* University */}
+            <p className="edu-uni">
+              Arid Agriculture University, Rawalpindi, Pakistan
+            </p>
+
+            <div className="edu-divider"></div>
+
+            {/* Coursework */}
+            <p className="edu-cw-label">Relevant Coursework</p>
+            <div className="edu-tags">
+              <span className="edu-tag">Web Technology</span>
+              <span className="edu-tag">Web Engineering</span>
+              <span className="edu-tag">Data Structures & Algorithms</span>
+              <span className="edu-tag">Object-Oriented Programming</span>
+              <span className="edu-tag">Database Systems</span>
+              <span className="edu-tag">Software Engineering</span>
+            </div>
+
+          </div>
+        </div>
+      </div>
+    </section>
+  );
 };
 
 export default Education;

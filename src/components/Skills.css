@@ -1,161 +1,154 @@
-/* ==========================================
-   MASTER SKILLS SECTION WRAPPER
-========================================== */
-.skills-section {
-    padding-top: 8rem;
-    padding-bottom: 4rem;
-    position: relative;
+.skills-section .section-title {
+  display: block;
+  width: 100%;
+  text-align: center;
 }
-
-/* Luxury Flexible Grid System (Fluid Mobile Scaling) */
-.skills-grid {
-    display: grid;
-    grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
-    gap: 2.5rem;
-    margin-top: 4rem;
-}
-
-/* ==========================================
-   CYBER GLASS MATRIX SKILL CARD
-========================================== */
-.skill-card {
-    padding: 2.5rem 2.2rem;
+.skills-categories {
     display: flex;
     flex-direction: column;
-    border-radius: 1.2rem;
-    
-    /* Smooth translucent dark tech layer */
-    background: linear-gradient(145deg, rgba(255, 255, 255, 0.02) 0%, rgba(5, 5, 5, 0.5) 100%);
-    backdrop-filter: blur(16px);
-    -webkit-backdrop-filter: blur(16px);
-    
-    /* Fine-tuned structural neon boundary line */
-    border: 1px solid rgba(139, 92, 246, 0.12);
-    box-shadow: 0 15px 35px rgba(0, 0, 0, 0.4),
-                inset 0 1px 1px rgba(255, 255, 255, 0.05);
-                
-    transition: all 0.5s cubic-bezier(0.25, 1, 0.3, 1);
-    
-    /* Staggered load animation entry */
-    opacity: 0;
-    animation: skillsFadeIn 0.8s cubic-bezier(0.25, 1, 0.5, 1) forwards;
+    gap: 3rem;
+    margin-top: 3rem;
 }
 
-/* High-End Card Hover Response */
-.skill-card:hover {
-    transform: translateY(-6px);
-    border-color: rgba(139, 92, 246, 0.35);
-    background: linear-gradient(145deg, rgba(139, 92, 246, 0.04) 0%, rgba(10, 10, 10, 0.7) 100%);
-    box-shadow: 0 25px 50px rgba(0, 0, 0, 0.6),
-                0 0 20px rgba(139, 92, 246, 0.1);
-}
+/* ── Category header ── */
+.skill-category {}
 
-/* ==========================================
-   TYPOGRAPHY & CHIP ARCHITECTURE
-========================================== */
-.skill-category-title {
-    font-size: 1.3rem;
-    font-weight: 800;
-    letter-spacing: 0.5px;
-    margin-bottom: 1.8rem;
-    color: #ffffff; /* Crisp white for core categorization */
-    position: relative;
-    display: inline-block;
-    transition: color 0.3s ease;
-}
-
-/* Title lights up into your theme secondary color on card focus */
-.skill-card:hover .skill-category-title {
-    color: var(--accent-secondary, #a78bfa);
-}
-
-/* Skill Tags Flex Junction */
-.skill-tags {
+.cat-header {
     display: flex;
-    flex-wrap: wrap;
-    gap: 0.7rem;
+    align-items: center;
+    gap: 12px;
+    margin-bottom: 16px;
 }
 
-/* ==========================================
-   THE HARAMI INDIVIDUAL MICRO-TAG INTERACTIVE
-========================================== */
-.skill-tag {
-    background: rgba(5, 5, 5, 0.6);
-    border: 1px solid rgba(255, 255, 255, 0.08);
-    padding: 0.55rem 1.1rem;
-    border-radius: 6px; /* Modern technical sharp look over traditional round pills */
-    font-size: 0.9rem;
-    font-weight: 600;
-    color: #d1d5db;
-    
-    box-shadow: inset 0 1px 2px rgba(0, 0, 0, 0.5);
-    /* Physics transition tailored for single touch responses */
-    transition: all 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+.cat-title {
+    font-size: 0.75rem;
+    font-weight: 700;
+    text-transform: uppercase;
+    letter-spacing: 2px;
+    white-space: nowrap;
+    flex-shrink: 0;
+}
+
+.cat-line {
+    flex: 1;
+    height: 1px;
+}
+
+.cat-count {
+    font-size: 0.7rem;
+    font-weight: 700;
+    padding: 3px 10px;
+    border-radius: 99px;
+    border: 1px solid;
+    white-space: nowrap;
+    flex-shrink: 0;
+    letter-spacing: 0.3px;
+}
+
+/* ── Skills grid ── */
+.skills-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(120px, 1fr));
+    gap: 10px;
+}
+
+/* ── Skill card ── */
+.skill-card {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    gap: 7px;
+    padding: 1.3rem 0.8rem;
+    border-radius: 12px;
+    border: 1px solid;
+    text-align: center;
     cursor: default;
+    opacity: 0;
+    animation: skillFadeIn 0.5s ease forwards;
+    transition: transform 0.25s ease, box-shadow 0.25s ease;
 }
 
-/* Crucial Fix: Only the specifically hovered tag scales up dynamically! */
-.skill-tag:hover {
-    color: #ffffff !important;
-    background: rgba(59, 130, 246, 0.15) !important; /* Electric Cyan-Blue blast */
-    border-color: #3b82f6 !important;
-    transform: translateY(-4px) scale(1.05);
-    box-shadow: 0 8px 20px rgba(59, 130, 246, 0.3),
-                inset 0 1px 1px rgba(255, 255, 255, 0.2);
-    text-shadow: 0 0 5px rgba(255, 255, 255, 0.5);
+.skill-card:hover {
+    transform: translateY(-6px) scale(1.04);
+    box-shadow: 0 14px 28px rgba(0, 0, 0, 0.4);
 }
 
-/* Subtle overall glow to inner tags when parent card is active */
-.skill-card:hover .skill-tag {
-    border-color: rgba(139, 92, 246, 0.2);
-    color: #f3f4f6;
+.skill-emoji {
+    font-size: 1.8rem;
+    line-height: 1;
+    transition: transform 0.25s ease;
 }
 
-/* ==========================================
-   ANIMATION KEYFRAMES
-========================================== */
-@keyframes skillsFadeIn {
-    0% {
-        opacity: 0;
-        transform: translateY(30px);
-    }
-    100% {
-        opacity: 1;
-        transform: translateY(0);
-    }
+.skill-card:hover .skill-emoji {
+    transform: scale(1.18);
 }
 
-/* ==========================================
-   PIXEL-PERFECT RESPONSIVE LAYER
-========================================== */
-@media (max-width: 1024px) {
+.skill-name {
+    font-size: 0.8rem;
+    font-weight: 700;
+    color: #f1f5f9;
+    letter-spacing: 0.2px;
+}
+
+.skill-badge {
+    font-size: 0.65rem;
+    font-weight: 700;
+    padding: 3px 10px;
+    border-radius: 99px;
+    border: 1px solid;
+    text-transform: uppercase;
+    letter-spacing: 0.5px;
+}
+
+/* ── Animation ── */
+@keyframes skillFadeIn {
+    from { opacity: 0; transform: translateY(20px); }
+    to   { opacity: 1; transform: translateY(0);    }
+}
+
+/* ── Responsive ── */
+@media (max-width: 768px) {
     .skills-grid {
-        grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
-        gap: 2rem;
+        grid-template-columns: repeat(auto-fill, minmax(100px, 1fr));
+        gap: 8px;
     }
-    .skill-card {
-        padding: 2.2rem 1.8rem;
-    }
+    .skill-emoji { font-size: 1.5rem; }
+    .skill-name  { font-size: 0.75rem; }
+    .skills-categories { gap: 2.5rem; }
 }
 
-@media (max-width: 640px) {
-    .skills-section {
-        padding-top: 6rem;
-    }
+@media (max-width: 480px) {
     .skills-grid {
-        grid-template-columns: 1fr; /* Pure layout stack hierarchy for mobile screens */
-        gap: 1.5rem;
+        grid-template-columns: repeat(3, 1fr);
     }
-    .skill-card {
-        padding: 2rem 1.5rem;
-    }
-    .skill-category-title {
-        font-size: 1.2rem;
-        margin-bottom: 1.4rem;
-    }
-    /* Smooth down scaling on mobile viewports */
-    .skill-tag {
-        font-size: 0.85rem;
-        padding: 0.45rem 0.95rem;
-    }
+}
+/* ── Bubble blink on hover ── */
+.skill-card::after {
+    content: '';
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    border-radius: 12px;
+    top: 0;
+    left: 0;
+    pointer-events: none;
+    opacity: 0;
+    border: 2px solid currentColor;
+    animation: none;
+}
+
+.skill-card {
+    position: relative;
+    overflow: visible;
+}
+
+.skill-card:hover::after {
+    animation: bubbleBlink 0.6s ease-in-out infinite;
+}
+
+@keyframes bubbleBlink {
+    0%   { opacity: 0;    transform: scale(1);    }
+    50%  { opacity: 0.35; transform: scale(1.08); }
+    100% { opacity: 0;    transform: scale(1.14); }
 }

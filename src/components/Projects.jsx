@@ -59,7 +59,9 @@ const projects = [
 function Projects() {
     return (
         <section className="projects-section container" id="projects">
-            <h2 className="section-title gradient-text">Technical Projects</h2>
+            <h2 className="section-title gradient-text" style={{ textAlign: 'center' }}>
+  Technical Projects
+</h2>
 
             <div className="projects-grid">
                 {projects.map((project) => (

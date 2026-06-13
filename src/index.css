@@ -94,6 +94,20 @@ a {
   background: linear-gradient(135deg, #ffffff 40%, var(--text-muted) 100%);
   -webkit-background-clip: text;
   -webkit-text-fill-color: transparent;
+  display: inline-block;
+  padding-bottom: 10px;
+}
+
+.section-title::after {
+  content: '';
+  position: absolute;
+  bottom: 0;
+  left: 50%;
+  transform: translateX(-50%);
+  width: 60%;
+  height: 3px;
+  background: linear-gradient(to right, #f59e0b, #ef4444, #8b5cf6);
+  border-radius: 2px;
 }
 
 .glass-card {

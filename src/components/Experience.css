@@ -1,238 +1,202 @@
-/* Experience Section Wrapper */
+/* ── Experience Section ── */
 .experience-section {
-    padding-top: 8rem;
-    padding-bottom: 6rem;
-    background: #030303; /* Deep premium dark canvas */
-    position: relative;
-    overflow: hidden;
+  padding-top: 3rem;
+  padding-bottom: 6rem;
+  background: #080810;
+  position: relative;
+  text-align: center;
 }
 
-/* Sci-fi Subtle Tech Grid Layer */
-.experience-section::before {
-    content: '';
-    position: absolute;
-    top: 0; left: 0; width: 100%; height: 100%;
-    background-image: linear-gradient(rgba(139, 92, 246, 0.015) 1px, transparent 1px),
-                      linear-gradient(90deg, rgba(139, 92, 246, 0.015) 1px, transparent 1px);
-    background-size: 40px 40px;
-    pointer-events: none;
-}
-
-/* Centralized Grid Container (No more empty sides) */
 .timeline {
-    position: relative;
-    max-width: 800px;
-    margin: 4rem auto 0;
-    padding: 0 2rem;
-    display: flex;
-    flex-direction: column;
-    gap: 3.5rem; /* Balanced breathing space */
+  position: relative;
+  max-width: 820px;
+  margin: 1.5rem auto 0;
+  padding: 0 2rem;
+  display: flex;
+  flex-direction: column;
+  gap: 2.5rem;
 }
 
-/* Continuous Subtle Glowing Tracker Line */
-.timeline::before {
-    content: '';
-    position: absolute;
-    top: 0;
-    left: 45px; /* Perfectly aligned with the icons */
-    height: 100%;
-    width: 2px;
-    background: linear-gradient(to bottom, 
-                rgba(139, 92, 246, 0.4) 0%, 
-                rgba(59, 130, 246, 0.4) 50%, 
-                transparent 100%);
-    box-shadow: 0 0 10px rgba(139, 92, 246, 0.1);
-}
-
-/* High-End Glassmorphic Card with Neon Highlight Lines */
+/* ── Card ── */
 .timeline-item {
-    position: relative;
-    padding: 2.8rem 3rem;
-    margin-left: 5rem; /* Space for the timeline icons */
-    border-radius: 1.2rem;
-    
-    /* Transparent Cyber Glass Look - No more plain black vanishing act */
-    background: linear-gradient(135deg, rgba(255, 255, 255, 0.03) 0%, rgba(255, 255, 255, 0.01) 100%);
-    backdrop-filter: blur(20px);
-    -webkit-backdrop-filter: blur(20px);
-    
-    /* Ultra-sharp dynamic neon border line */
-    border: 1px solid rgba(139, 92, 246, 0.15);
-    
-    /* Deep 3D Shadow matrix */
-    box-shadow: 0 20px 40px rgba(0, 0, 0, 0.6), 
-                inset 0 1px 1px rgba(255, 255, 255, 0.1);
-    
-    transition: all 0.5s cubic-bezier(0.165, 0.84, 0.44, 1);
+  position: relative;
+  background: #111118;
+  border-radius: 20px;
+  border: 1px solid rgba(255,255,255,0.06);
+  overflow: hidden;
+  transition: transform 0.35s ease, border-color 0.35s ease;
 }
 
-/* Hyper-Drive Hover Mechanics */
 .timeline-item:hover {
-    transform: translateX(10px);
-    background: linear-gradient(135deg, rgba(139, 92, 246, 0.05) 0%, rgba(59, 130, 246, 0.02) 100%);
-    
-    /* Border line brightens up instantly on hover */
-    border-color: rgba(139, 92, 246, 0.5);
-    box-shadow: 0 30px 60px rgba(0, 0, 0, 0.8), 
-                0 0 25px rgba(139, 92, 246, 0.15),
-                inset 0 1px 2px rgba(255, 255, 255, 0.2);
+  transform: translateY(-4px);
+  border-color: rgba(251,191,36,0.2);
 }
 
-/* Premium Hexagonal Node Icon */
-.timeline-icon {
-    position: absolute;
-    left: -5.3rem;
-    top: 2.2rem;
-    width: 54px;
-    height: 54px;
-    background: #0a0a0a;
-    
-    /* High-tech clip path shape */
-    clip-path: polygon(50% 0%, 100% 25%, 100% 75%, 50% 100%, 0% 75%, 0% 25%);
-    -webkit-clip-path: polygon(50% 0%, 100% 25%, 100% 75%, 50% 100%, 0% 75%, 0% 25%);
-    
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    color: rgba(255, 255, 255, 0.4);
-    z-index: 5;
-    border: 1px solid rgba(139, 92, 246, 0.2);
-    transition: all 0.4s ease;
+/* ── Top Gradient Accent Bar ── */
+.card-accent-bar {
+  height: 3px;
+  background: linear-gradient(to right, #f59e0b, #ef4444, #8b5cf6);
 }
 
-/* Glowing Inner Border for Icon */
-.timeline-icon::before {
-    content: '';
-    position: absolute;
-    top: 4px; left: 4px; right: 4px; bottom: 4px;
-    border: 1.5px solid rgba(139, 92, 246, 0.1);
-    clip-path: inherit;
-    -webkit-clip-path: inherit;
-    transition: all 0.3s ease;
+.card-body {
+  padding: 2.2rem 2.4rem;
+  text-align: left;
 }
 
-/* Connecting Icon Reactions to Card Hover */
-.timeline-item:hover .timeline-icon {
-    color: #ffffff;
-    background: var(--accent-primary, #6d28d9);
-    transform: scale(1.1) rotate(15deg);
-    box-shadow: 0 0 20px rgba(139, 92, 246, 0.6);
+/* ── Job Header ── */
+.job-header {
+  display: flex;
+  align-items: flex-start;
+  justify-content: space-between;
+  gap: 1rem;
+  flex-wrap: wrap;
+  margin-bottom: 0.3rem;
 }
 
-.timeline-item:hover .timeline-icon::before {
-    border-color: rgba(255, 255, 255, 0.6);
-}
-
-/* Typography & Inside Content Tuning */
 .job-title {
-    font-size: 1.75rem;
-    font-weight: 800;
-    letter-spacing: -0.3px;
-    color: #ffffff;
-    margin-bottom: 0.3rem;
+  font-size: 1.5rem;
+  font-weight: 800;
+  color: #f8fafc;
+  letter-spacing: -0.4px;
 }
 
+/* ── Live Badge ── */
+.live-badge {
+  display: flex;
+  align-items: center;
+  gap: 7px;
+  background: rgba(251,191,36,0.08);
+  border: 1px solid rgba(251,191,36,0.2);
+  border-radius: 20px;
+  padding: 5px 15px;
+  flex-shrink: 0;
+  font-size: 0.7rem;
+  font-weight: 700;
+  color: #fbbf24;
+  letter-spacing: 1px;
+  text-transform: uppercase;
+}
+
+.live-dot {
+  width: 7px;
+  height: 7px;
+  border-radius: 50%;
+  background: #fbbf24;
+  animation: livePulse 2s ease infinite;
+}
+
+@keyframes livePulse {
+  0%, 100% { opacity: 1; }
+  50%       { opacity: 0.3; }
+}
+
+/* ── Company ── */
 .company {
-    font-size: 1.1rem;
-    /* Electric text color to pop out from dark background */
-    color: #3b82f6; 
-    font-weight: 700;
-    letter-spacing: 0.5px;
-    margin-bottom: 1rem;
+  font-size: 0.95rem;
+  font-weight: 600;
+  color: #94a3b8;
+  letter-spacing: 0.3px;
+  margin-bottom: 0;
 }
 
-/* Modern Technical Time Badge */
+.card-divider {
+  height: 1px;
+  background: rgba(255,255,255,0.06);
+  margin: 1.1rem 0;
+}
+
+/* ── Date Row ── */
+.date-row {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  flex-wrap: wrap;
+  gap: 0.5rem;
+  margin-bottom: 1.2rem;
+}
+
 .duration {
-    display: inline-block;
-    font-size: 0.75rem;
-    font-weight: 700;
-    text-transform: uppercase;
-    letter-spacing: 1.5px;
-    padding: 0.4rem 1rem;
-    background: rgba(139, 92, 246, 0.1);
-    color: #a78bfa;
-    border: 1px solid rgba(139, 92, 246, 0.25);
-    border-radius: 4px;
-    margin-bottom: 2rem;
+  display: inline-block;
+  font-size: 0.7rem;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 2px;
+  padding: 5px 14px;
+  background: rgba(251,191,36,0.08);
+  color: #fbbf24;
+  border: 1px solid rgba(251,191,36,0.15);
+  border-radius: 6px;
 }
 
-/* Clean High-Contrast Reusable Bullet Structure */
+.date-right {
+  font-size: 0.78rem;
+  color: rgba(255,255,255,0.25);
+}
+
+/* ── Tech Tags ── */
+.tech-row {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 8px;
+  margin-bottom: 1.5rem;
+}
+
+.tech-tag {
+  font-size: 0.74rem;
+  font-weight: 600;
+  padding: 4px 13px;
+  border-radius: 20px;
+  letter-spacing: 0.3px;
+}
+
+.tag-react   { background: rgba(97,218,251,0.1);   color: #61dafb; border: 1px solid rgba(97,218,251,0.2); }
+.tag-node    { background: rgba(104,160,99,0.12);  color: #6dbf67; border: 1px solid rgba(104,160,99,0.2); }
+.tag-mongo   { background: rgba(77,179,61,0.1);    color: #4db33d; border: 1px solid rgba(77,179,61,0.2); }
+.tag-express { background: rgba(255,255,255,0.05); color: rgba(255,255,255,0.55); border: 1px solid rgba(255,255,255,0.1); }
+
+/* ── Two-Column Job Description ── */
 .job-description {
-    list-style-type: none;
-    display: flex;
-    flex-direction: column;
-    gap: 1.1rem;
+  list-style: none;
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 10px 20px;
 }
 
 .job-description li {
-    position: relative;
-    padding-left: 2rem;
-    /* Soft light color for high readability on dark screens */
-    color: #d1d5db; 
-    font-size: 1.02rem;
-    line-height: 1.6;
-    font-weight: 400;
-    transition: color 0.3s ease;
+  display: flex;
+  align-items: flex-start;
+  gap: 8px;
+  font-size: 0.92rem;
+  color: #cbd5e1;
+  line-height: 1.55;
+  transition: color 0.3s ease;
 }
 
-/* The Glowing Tech Code Comment Bullet (`//`) */
 .job-description li::before {
-    content: '//';
-    position: absolute;
-    left: 0;
-    top: 0;
-    color: #6d28d9; /* Deep glowing purple */
-    font-family: 'Courier New', Courier, monospace;
-    font-weight: 900;
-    font-size: 1.05rem;
-    transition: all 0.3s ease;
+  content: '→';
+  color: #f59e0b;
+  font-size: 0.95rem;
+  flex-shrink: 0;
+  margin-top: 1px;
 }
 
-/* Hover Content Illumination */
 .timeline-item:hover .job-description li {
-    color: #ffffff; /* Text becomes crisp white on active focus */
+  color: #f1f5f9;
 }
 
 .timeline-item:hover .job-description li::before {
-    color: #00f260; /* Code comment flips to sharp green when hovered! */
-    text-shadow: 0 0 8px #00f260;
+  color: #fbbf24;
 }
 
-/* Seamless Responsive Architecture */
-@media (max-width: 900px) {
-    .timeline {
-        padding: 0 1rem;
-    }
-    .timeline::before {
-        left: 35px;
-    }
-    .timeline-item {
-        margin-left: 4rem;
-        padding: 2.2rem 2rem;
-    }
-    .timeline-icon {
-        left: -4.3rem;
-        width: 46px;
-        height: 46px;
-        top: 2.2rem;
-    }
-}
-
-@media (max-width: 600px) {
-    .timeline::before {
-        display: none; /* Strip lines on mobile for pure component rendering */
-    }
-    .timeline-item {
-        margin-left: 0;
-        padding: 1.8rem 1.5rem;
-    }
-    .timeline-icon {
-        position: relative;
-        left: 0;
-        top: 0;
-        margin-bottom: 1.2rem;
-    }
-    .job-title {
-        font-size: 1.4rem;
-    }
+/* ── Responsive ── */
+@media (max-width: 700px) {
+  .job-description {
+    grid-template-columns: 1fr;
+  }
+  .card-body {
+    padding: 1.6rem 1.4rem;
+  }
+  .job-title {
+    font-size: 1.25rem;
+  }
 }
